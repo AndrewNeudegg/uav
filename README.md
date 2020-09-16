@@ -1,7 +1,7 @@
 # UAV 
 
 ![Go](https://github.com/AndrewNeudegg/uav/workflows/Go/badge.svg?branch=master)
-![.github/workflows/master_cicd.yaml](https://github.com/AndrewNeudegg/uav/workflows/.github/workflows/master_cicd.yaml/badge.svg?branch=master)
+![Release](https://github.com/AndrewNeudegg/uav/workflows/Release/badge.svg)
 
 ## Example usage
 The following command will take the pipeline defined in `my.pipeline.yaml` and output the result to `stdout`.  If you wanted to output to a file, redirect the output or use the `-o` flag.
