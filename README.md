@@ -1,8 +1,7 @@
-# UAV (the golang version)
-> This is a blatant rip off of @dan's work; see the c++ directory
-only in golang.
+# UAV 
 
-Dan's original code was brilliant, and did the job of merging pipelines together in a way that I don't think had been considered before.  So Dan did all the mental heavy lifting.
+![Go](https://github.com/AndrewNeudegg/uav/workflows/Go/badge.svg?branch=master)
+
 
 ## Example usage
 The following command will take the pipeline defined in `my.pipeline.yaml` and output the result to `stdout`.  If you wanted to output to a file, redirect the output or use the `-o` flag.
