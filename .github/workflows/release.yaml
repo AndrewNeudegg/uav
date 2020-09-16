@@ -1,12 +1,11 @@
 name: Release
 
-on: 
+on:
   push:
     branches:
       - master
 
 jobs:
-
   push_to_registry:
     name: Push Docker image to Dockerhub
     runs-on: ubuntu-latest
@@ -29,3 +28,27 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           tags: "latest,${{ steps.release.outputs.version }}"
+
+      - name: Compile and release linux-amd64
+        uses: ngs/go-release.action@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GOARCH: amd64
+          GOOS: linux
+          EXTRA_FILES: "LICENSE"
+
+      - name: Compile and release darwin-amd64
+        uses: ngs/go-release.action@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GOARCH: amd64
+          GOOS: darwin
+          EXTRA_FILES: "LICENSE"
+
+      - name: Compile and release windows-amd64
+        uses: ngs/go-release.action@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GOARCH: amd64
+          GOOS: darwin
+          EXTRA_FILES: "LICENSE"
