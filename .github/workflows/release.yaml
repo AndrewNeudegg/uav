@@ -17,7 +17,7 @@ jobs:
         uses: rymndhng/release-on-push-action@v0.15.0
         with:
           # If the PR has the label release:major, release:minor, or release:patch, this will override bump_version_scheme
-          bump_version_scheme: release:patch
+          bump_version_scheme: patch
 
       - name: Check out the repo
         uses: actions/checkout@v2
