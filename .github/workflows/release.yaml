@@ -39,7 +39,7 @@ jobs:
         run: mkdir -p artifacts/binaries
 
       - name: Build 
-        run: GOARCH=amd64 GOOS=darwin go build -v . -o artifacts/binaries/uav-darwin-amd64
+        run: GOARCH=amd64 GOOS=darwin go build -o artifacts/binaries/uav-darwin-amd64 -v . 
       # - name: Build 
       #   run: GOARCH=amd64 GOOS=windows go build -v . -o artifacts/uav-windows-amd64
 
