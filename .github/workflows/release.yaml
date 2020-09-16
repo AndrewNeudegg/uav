@@ -7,7 +7,7 @@ on:
 
 jobs:
   push_to_registry:
-    name: Push Docker image to Dockerhub
+    name: Make Release (docker image + binaries)
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -30,7 +30,7 @@ jobs:
           tags: "latest,${{ steps.release.outputs.version }}"
 
       - name: Compile and release linux-amd64
-        uses: ngs/go-release.action@v1.0.1
+        uses: ngs/go-release.action@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GOARCH: amd64
@@ -38,7 +38,7 @@ jobs:
           EXTRA_FILES: "LICENSE"
 
       - name: Compile and release darwin-amd64
-        uses: ngs/go-release.action@v1.0.1
+        uses: ngs/go-release.action@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GOARCH: amd64
@@ -46,7 +46,7 @@ jobs:
           EXTRA_FILES: "LICENSE"
 
       - name: Compile and release windows-amd64
-        uses: ngs/go-release.action@v1.0.1
+        uses: ngs/go-release.action@v1.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GOARCH: amd64
