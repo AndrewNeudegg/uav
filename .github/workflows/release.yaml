@@ -49,6 +49,10 @@ jobs:
         with:
           push: true
           tags: finbourne/uav:latest
+          context: .
+          file: ./dockerfile
+          platforms: linux/amd64
+
       - name: Push to Dockerhub (semver)
         uses: docker/build-push-action@v2
         with:
