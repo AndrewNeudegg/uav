@@ -7,8 +7,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/finbourne/uav/golang/pkg/log"
-	"github.com/finbourne/uav/golang/pkg/pipeline"
+	"github.com/finbourne/uav/pkg/log"
+	"github.com/finbourne/uav/pkg/pipeline"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
 
@@ -22,6 +22,7 @@ var (
 	jsonVerbose  = app.Flag("json", "Verbose output in JSON format - use in combination with '--verbose'.").Short('j').Bool()
 
 	outputFile = merge.Flag("output", "The file to save the output to.").Short('o').String()
+	version    = "development"
 )
 
 func main() {

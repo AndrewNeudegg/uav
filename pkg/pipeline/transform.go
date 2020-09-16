@@ -9,7 +9,7 @@ import (
 	"text/template"
 
 	"github.com/Masterminds/sprig"
-	"github.com/finbourne/uav/golang/pkg/log"
+	"github.com/finbourne/uav/pkg/log"
 	yaml "gopkg.in/yaml.v2"
 )
 

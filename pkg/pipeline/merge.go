@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/finbourne/uav/golang/pkg/log"
+	"github.com/finbourne/uav/pkg/log"
 )
 
 func merge(p1 Pipeline, p2 Pipeline) (Pipeline, error) {
