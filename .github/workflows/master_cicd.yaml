@@ -12,7 +12,8 @@ jobs:
       - id: release
         uses: rymndhng/release-on-push-action@v0.15.0
         with:
-          bump_version_scheme: patch
+          # If the PR has the label release:major, release:minor, or release:patch, this will override bump_version_scheme
+          bump_version_scheme: norelease
       - name: Check Output Parameters
         run: |
           echo "Got tag name ${{ steps.release.outputs.tag_name }}"
