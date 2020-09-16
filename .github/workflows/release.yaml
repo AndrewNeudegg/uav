@@ -12,11 +12,11 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      # - id: release
-      #   uses: rymndhng/release-on-push-action@v0.15.0
-      #   with:
-      #     # If the PR has the label release:major, release:minor, or release:patch, this will override bump_version_scheme
-      #     bump_version_scheme: patch
+      - id: release
+        uses: rymndhng/release-on-push-action@v0.15.0
+        with:
+          # If the PR has the label release:major, release:minor, or release:patch, this will override bump_version_scheme
+          bump_version_scheme: patch
 
       - name: Check out the repo
         uses: actions/checkout@v2
@@ -38,15 +38,18 @@ jobs:
       - name: Configure
         run: mkdir -p artifacts/binaries
 
-      - name: Build 
+      - name: Build uav-darwin-amd64
         run: GOARCH=amd64 GOOS=darwin go build -o artifacts/binaries/uav-darwin-amd64 -v . 
-      # - name: Build 
-      #   run: GOARCH=amd64 GOOS=windows go build -v . -o artifacts/uav-windows-amd64
+      - name: Build uav-linux-amd64
+        run: GOARCH=amd64 GOOS=linux go build -o artifacts/binaries/uav-linux-amd64 -v . 
+      - name: Build uav-windows-amd64
+        run: GOARCH=amd64 GOOS=windows go build -o artifacts/binaries/uav-windows-amd64 -v .
 
       - uses: AButler/upload-release-assets@v2.0
         with:
-          files: ' artifacts/binaries/*;'
+          files: 'artifacts/binaries/*;'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-tag: ${{ steps.release.outputs.version }}
 
       # - name: Compile and release linux-amd64
       #   uses: ngs/go-release.action@v1.0.2
