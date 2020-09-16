@@ -18,6 +18,7 @@ jobs:
         with:
           # If the PR has the label release:major, release:minor, or release:patch, this will override bump_version_scheme
           bump_version_scheme: release:patch
+
       - name: Check out the repo
         uses: actions/checkout@v2
 
