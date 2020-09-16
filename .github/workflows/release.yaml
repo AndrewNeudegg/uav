@@ -39,11 +39,11 @@ jobs:
         run: mkdir artifacts
 
       - name: Build 
-        run: GOARCH=amd64 GOOS=linux go build -v . -o ./artifacts/uav-linux-amd64
+        run: GOARCH=amd64 GOOS=linux go build -v . -o artifacts/uav-linux-amd64
       - name: Build 
-        run: GOARCH=amd64 GOOS=darwin go build -v . -o ./artifacts/uav-darwin-amd64
+        run: GOARCH=amd64 GOOS=darwin go build -v . -o artifacts/uav-darwin-amd64
       - name: Build 
-        run: GOARCH=amd64 GOOS=windows go build -v . -o ./artifacts/uav-windows-amd64
+        run: GOARCH=amd64 GOOS=windows go build -v . -o artifacts/uav-windows-amd64
 
       - uses: AButler/upload-release-assets@v2.0
         with:
