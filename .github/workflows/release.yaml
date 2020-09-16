@@ -49,7 +49,7 @@ jobs:
         with:
           files: 'artifacts/binaries/*;'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          release-tag: "v${{ steps.release.outputs.version }}"
+          release-tag: v${{ steps.release.outputs.version }}
 
       # - name: Compile and release linux-amd64
       #   uses: ngs/go-release.action@v1.0.2
