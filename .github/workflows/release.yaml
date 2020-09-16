@@ -30,25 +30,33 @@ jobs:
           tags: "latest,${{ steps.release.outputs.version }}"
 
       - name: Compile and release linux-amd64
-        uses: ngs/go-release.action@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GOARCH: amd64
-          GOOS: linux
-          EXTRA_FILES: "LICENSE"
+        uses: wangyoucao577/go-release-action@v1.8
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          goos: linux
+          goarch: amd64
+          goversion: go1.15.2
+        
+      # - name: Compile and release linux-amd64
+      #   uses: ngs/go-release.action@v1.0.2
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     GOARCH: amd64
+      #     GOOS: linux
+      #     EXTRA_FILES: "LICENSE"
 
-      - name: Compile and release darwin-amd64
-        uses: ngs/go-release.action@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GOARCH: amd64
-          GOOS: darwin
-          EXTRA_FILES: "LICENSE"
+      # - name: Compile and release darwin-amd64
+      #   uses: ngs/go-release.action@v1.0.2
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     GOARCH: amd64
+      #     GOOS: darwin
+      #     EXTRA_FILES: "LICENSE"
 
-      - name: Compile and release windows-amd64
-        uses: ngs/go-release.action@v1.0.2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GOARCH: amd64
-          GOOS: darwin
-          EXTRA_FILES: "LICENSE"
+      # - name: Compile and release windows-amd64
+      #   uses: ngs/go-release.action@v1.0.2
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     GOARCH: amd64
+      #     GOOS: darwin
+      #     EXTRA_FILES: "LICENSE"
