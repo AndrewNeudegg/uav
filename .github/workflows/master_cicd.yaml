@@ -23,6 +23,10 @@ jobs:
     name: Push Docker image to Dockerhub
     runs-on: ubuntu-latest
     steps:
+      - id: release
+        uses: rymndhng/release-on-push-action@v0.15.0
+        with:
+          bump_version_scheme: norelease
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Login to DockerHub
