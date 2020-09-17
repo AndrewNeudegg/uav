@@ -10,7 +10,7 @@ jobs:
     name: Make Release (docker image + binaries)
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
