@@ -1,10 +1,6 @@
 name: build-release
 
-on:
-  pull_request:
-  release:
-    types:
-      - created
+on: release
 
 jobs:
   build:
