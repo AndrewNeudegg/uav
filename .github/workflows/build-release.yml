@@ -44,7 +44,11 @@ jobs:
       - name: Build uav-linux-amd64
         run: GOARCH=amd64 GOOS=linux go build -o ${{ github.workspace }}/artifacts/binaries/uav-linux-amd64 -v . 
       - name: Build uav-windows-amd64
-        run: GOARCH=amd64 GOOS=windows go build -o ${{ github.workspace }}/artifacts/binaries/uav-windows-amd64 -v .
+        run: GOARCH=amd64 GOOS=windows go build -o ${{ github.workspace }}/artifacts/binaries/uav-windows-amd64.exe -v .
+
+      - name: Get color
+        run: |
+              echo URL IS: ${{ github.event.release.upload_url }}, tag is: ${{ github.event.release.tag_name }}
 
       - uses: shogo82148/actions-upload-release-asset@v1.2.2
         with:
@@ -57,4 +61,4 @@ jobs:
       - uses: shogo82148/actions-upload-release-asset@v1.2.2
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: ${{ github.workspace }}/artifacts/binaries/uav-windows-amd64
+          asset_path: ${{ github.workspace }}/artifacts/binaries/uav-windows-amd64.exe
