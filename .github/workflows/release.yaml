@@ -39,18 +39,18 @@ jobs:
         id: go
 
       - name: Configure
-        run: mkdir -p artifacts/binaries
+        run: mkdir -p ${{ github.workspace }}/artifacts/binaries
 
       - name: Build uav-darwin-amd64
-        run: GOARCH=amd64 GOOS=darwin go build -o artifacts/binaries/uav-darwin-amd64 -v . 
+        run: GOARCH=amd64 GOOS=darwin go build -o ${{ github.workspace }}/artifacts/binaries/uav-darwin-amd64 -v . 
       - name: Build uav-linux-amd64
-        run: GOARCH=amd64 GOOS=linux go build -o artifacts/binaries/uav-linux-amd64 -v . 
+        run: GOARCH=amd64 GOOS=linux go build -o ${{ github.workspace }}/artifacts/binaries/uav-linux-amd64 -v . 
       - name: Build uav-windows-amd64
-        run: GOARCH=amd64 GOOS=windows go build -o artifacts/binaries/uav-windows-amd64 -v .
+        run: GOARCH=amd64 GOOS=windows go build -o ${{ github.workspace }}/artifacts/binaries/uav-windows-amd64 -v .
 
       - uses: AButler/upload-release-assets@v2.0
         with:
-          files: 'artifacts/binaries/*;'
+          files: '${{ github.workspace }}/artifacts/binaries/*;'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           release-tag: v${{ steps.release.outputs.version }}
 
