@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  push_to_registry:
+  bump_version:
     name: Make Release (docker image + binaries)
     runs-on: ubuntu-latest
     env:
@@ -14,12 +14,20 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v2
-
-      - id: release
-        uses: rymndhng/release-on-push-action@v0.15.0
         with:
-          # If the PR has the label release:major, release:minor, or release:patch, this will override bump_version_scheme
-          bump_version_scheme: patch
+          # Fetches entire history, so we can analyze commits since last tag
+          fetch-depth: 0
+
+      - name: Bump version and push tag
+        uses: mathieudutour/github-tag-action@v4.5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      # - id: release
+      #   uses: rymndhng/release-on-push-action@v0.15.0
+      #   with:
+      #     # If the PR has the label release:major, release:minor, or release:patch, this will override bump_version_scheme
+      #     bump_version_scheme: patch
 
       # - name: Check out the repo
       #   uses: actions/checkout@v2
