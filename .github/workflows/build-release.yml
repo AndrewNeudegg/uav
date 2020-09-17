@@ -49,6 +49,11 @@ jobs:
       - name: Testing
         run: |
               echo URL IS: ${{ github.event.release.upload_url }}, tag is: ${{ github.event.release.tag_name }}, full release event: ${{ github.event.release }}
+              echo Name: ${{ github.event.release.name }}
+              echo version name is: ${{ github.event.release.tag_name }}
+              echo release title is: ${{ github.event.release.name }}
+              echo release body is: ${{ github.event.release.body }}
+              echo repository is: ${{ github.repository }}
 
       - uses: shogo82148/actions-upload-release-asset@v1.2.2
         with:
