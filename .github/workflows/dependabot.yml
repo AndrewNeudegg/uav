@@ -1,5 +1,4 @@
 version: 2
-name: github-actions-dependabot
 updates:
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: "github-actions"
