@@ -48,7 +48,7 @@ jobs:
       # - name: Build uav-windows-amd64
       #   run: GOARCH=amd64 GOOS=windows go build -o ${{ github.workspace }}/artifacts/binaries/uav-windows-amd64 -v .
 
-      - uses: AButler/upload-release-assets@v2.0
+      - uses: AButler/upload-release-assets@v2.1.4
         with:
           files: '${{ github.workspace }}/artifacts/binaries/*;'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
