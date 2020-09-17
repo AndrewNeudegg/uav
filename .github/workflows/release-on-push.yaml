@@ -1,4 +1,4 @@
-name: Release
+name: release-generator
 
 on:
   push:
@@ -21,8 +21,8 @@ jobs:
           # If the PR has the label release:major, release:minor, or release:patch, this will override bump_version_scheme
           bump_version_scheme: patch
 
-      - name: Check out the repo
-        uses: actions/checkout@v2
+      # - name: Check out the repo
+      #   uses: actions/checkout@v2
 
       # - name: Publish to Dockerhub
       #   uses: elgohr/Publish-Docker-Github-Action@2.21
@@ -32,26 +32,26 @@ jobs:
       #     password: ${{ secrets.DOCKERHUB_TOKEN }}
       #     tags: "latest,${{ steps.release.outputs.version }}"
 
-      - name: Set up Go 1.x
-        uses: actions/setup-go@v2
-        with:
-          go-version: ^1.15
-        id: go
+      # - name: Set up Go 1.x
+      #   uses: actions/setup-go@v2
+      #   with:
+      #     go-version: ^1.15
+      #   id: go
 
-      - name: Configure
-        run: mkdir -p ${{ github.workspace }}/artifacts/binaries
+      # - name: Configure
+      #   run: mkdir -p ${{ github.workspace }}/artifacts/binaries
 
-      - name: Build uav-darwin-amd64
-        run: GOARCH=amd64 GOOS=darwin go build -o ${{ github.workspace }}/artifacts/binaries/uav-darwin-amd64 -v . 
+      # - name: Build uav-darwin-amd64
+      #   run: GOARCH=amd64 GOOS=darwin go build -o ${{ github.workspace }}/artifacts/binaries/uav-darwin-amd64 -v . 
       # - name: Build uav-linux-amd64
       #   run: GOARCH=amd64 GOOS=linux go build -o ${{ github.workspace }}/artifacts/binaries/uav-linux-amd64 -v . 
       # - name: Build uav-windows-amd64
       #   run: GOARCH=amd64 GOOS=windows go build -o ${{ github.workspace }}/artifacts/binaries/uav-windows-amd64 -v .
 
-      - uses: AButler/upload-release-assets@v2.1.4
-        with:
-          files: '${{ github.workspace }}/artifacts/binaries/*;'
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      # - uses: AButler/upload-release-assets@v2.1.4
+      #   with:
+      #     files: '${{ github.workspace }}/artifacts/binaries/*;'
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
           # release-tag: v${{ steps.release.outputs.version }}
 
       # - name: Compile and release linux-amd64
