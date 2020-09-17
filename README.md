@@ -1,7 +1,7 @@
 # UAV 
 
-![release-generator](https://github.com/AndrewNeudegg/uav/workflows/release-generator/badge.svg)
-![build-release](https://github.com/AndrewNeudegg/uav/workflows/build-release/badge.svg)
+![release-tag](https://github.com/AndrewNeudegg/uav/workflows/release-tag/badge.svg)
+![release-build](https://github.com/AndrewNeudegg/uav/workflows/release-build/badge.svg)
 ![Go-build-status](https://github.com/AndrewNeudegg/uav/workflows/Go-build-status/badge.svg)
 
 ## Example usage
