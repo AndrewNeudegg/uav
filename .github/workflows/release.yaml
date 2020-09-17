@@ -12,6 +12,9 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+
       - id: release
         uses: rymndhng/release-on-push-action@v0.15.0
         with:
