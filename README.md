@@ -1,7 +1,8 @@
 # UAV 
 
-![Go](https://github.com/AndrewNeudegg/uav/workflows/Go/badge.svg?branch=master)
-![Release](https://github.com/AndrewNeudegg/uav/workflows/Release/badge.svg)
+![release-generator](https://github.com/AndrewNeudegg/uav/workflows/release-generator/badge.svg)
+![build-release](https://github.com/AndrewNeudegg/uav/workflows/build-release/badge.svg)
+![Go-build-status](https://github.com/AndrewNeudegg/uav/workflows/Go-build-status/badge.svg)
 
 ## Example usage
 The following command will take the pipeline defined in `my.pipeline.yaml` and output the result to `stdout`.  If you wanted to output to a file, redirect the output or use the `-o` flag.
